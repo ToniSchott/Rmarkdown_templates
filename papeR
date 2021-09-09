@@ -1,0 +1,156 @@
+---
+output:
+  bookdown::pdf_document2: 
+    latex_engine: xelatex
+    toc: false
+    fig_caption: yes
+    fig_width: 6
+    fig_height: 3
+    df_print: kable
+    keep_tex: yes
+  word_document: default
+documentclass: article
+papersize: a4
+pagestyle: plain
+geometry: margin=2cm
+linestretch: 1.5
+mainfont: Times New Roman
+fontsize: 11pt
+bibliography: references.bib
+csl: ecology_letters.csl
+link-citations: yes
+linkcolor: RoyalBlue
+urlcolor: RoyalBlue
+links-as-notes: no
+header-includes: \usepackage{siunitx}
+---
+
+<!--# Let the first page look nice and clean -->
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Main Title}
+            
+        \vspace{0.5cm}
+        \LARGE
+       Subtitle  
+            
+        \vspace{1.5cm}
+            
+        \textbf{Author} \\
+        `r format(Sys.time(), '%d.%m.%Y')`
+            
+        \vfill
+            
+        Additional information/header on bottom of page
+            
+        \vspace{0.8cm}
+            
+        \Large
+       your personal detail\\
+            
+    \end{center}
+\end{titlepage}
+
+<!--# let page numbers start after first clear page -->
+
+\pagenumbering{gobble}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\pagenumbering{arabic}
+
+<!--# Write Abstract and Keywords below -->
+
+\vspace{1cm}
+\hrule
+
+Read this if to lazy to read it all
+
+\vspace{3mm}
+\hrule
+\vspace{5mm}
+
+*Keywords*: important, things, in, your, text
+
+
+\newpage
+\tableofcontents
+\newpage
+
+<!--# your first code chunk to load all packages and tell r how/if to display code chunks -->
+
+```{r setup, include=FALSE, message = FALSE, echo=FALSE, error=FALSE,warning=FALSE, message=FALSE, tidy=TRUE}
+# load all your needed packages here
+library(knitr)
+library(readxl)
+library(readr)
+library(tidyverse)
+library(ggpubr)
+
+#tell r what to do with code chunks and figure sizes
+knitr::opts_chunk$set(cache=TRUE, message=FALSE, warning=FALSE, 
+                      error=FALSE, echo = FALSE,  fig.cap = " ", tidy = TRUE, fig.align="center", fig.width = 6, fig.height = 3)
+```
+
+<!--# Start writing your Introduction below -->
+
+# <span style="font-variant:small-caps;">Introduction</span>
+
+a few handy things:
+SI unit display
+$\frac{µE}{m^2s}$
+
+equations with side tags
+
+\begin{equation}
+  \frac{(N  A)}{(nva)} = C \label{eq1}\tag{1}
+\end{equation}
+
+inline equations $\frac{µE}{m^2s}$
+
+change linestretch
+\setstretch{1}
+\setstretch{1.5}
+\newpage
+
+center an image
+
+<center>
+
+
+<center>
+
+crossreference a figure
+\ref{fig:name of figure in chunk}
+
+crossreference a header [RESULTS]
+
+link to webpage
+<https://github.com/ToniSchott/ICBM_internship>
+
+# <span style="font-variant:small-caps;">Methods</span>
+
+## <span style="font-variant:small-caps;">Experimental Setup</span>
+
+## <span style="font-variant:small-caps;">Sampling</span>
+
+## <span style="font-variant:small-caps;">Cell Counting</span>
+
+## <span style="font-variant:small-caps;">Statistical Analysis</span>
+
+#  <span style="font-variant:small-caps;">Results</span> {#RESULTS}
+
+# <span style="font-variant:small-caps;">Discussion</span>
+
+# <span style="font-variant:small-caps;">Conclusion</span>
+
+# <span style="font-variant:small-caps;">Acknowledgements</span>
+
+# <span style="font-variant:small-caps;">Appendix</span>
+
+# <span style="font-variant:small-caps;">References</span>
